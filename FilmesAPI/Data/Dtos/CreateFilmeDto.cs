@@ -1,19 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FilmesAPI.Models;
-// Entidade no banco de dados
-public class Filme
+namespace FilmesAPI.Data.Dtos;
+
+public class CreateFilmeDto
 {
-    [Key]
-    [Required]
-    public int Id { get; set; }
 
     [Required(ErrorMessage = "O titulo do filme é obrigatório!")]
     [StringLength(30, ErrorMessage = "Limite máximo de caracteres é 30!")]
     public String Titulo { get; set; }
 
     [Required(ErrorMessage = "O genero do filme é obrigatório!")]
-    [MaxLength(50, ErrorMessage = "O tamanho do gênero não pode exceder 50 caracteres!")]
+    [StringLength(50, ErrorMessage = "O tamanho do gênero não pode exceder 50 caracteres!")]
     public String Genero { get; set; }
 
     [Required(ErrorMessage = "A duração do filme é obrigatório!")]
@@ -21,4 +18,3 @@ public class Filme
     public int Duracao { get; set; }
 
 }
-

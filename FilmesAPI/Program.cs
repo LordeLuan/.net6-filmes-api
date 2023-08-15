@@ -9,6 +9,9 @@ var connectionString = builder.Configuration.GetConnectionString("FilmeConnectio
 builder.Services.AddDbContext<FilmeContext>(opts => 
     opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
+// Para a lib autoMapper poder mapear uma entidade em uma classe DTO
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
